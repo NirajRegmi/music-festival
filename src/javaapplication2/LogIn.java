@@ -69,6 +69,11 @@ public class LogIn extends javax.swing.JFrame {
         jLabel3.setText("Password");
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Customer", "coordinator", "administrator", "organizer" }));
+        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox1ActionPerformed(evt);
+            }
+        });
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
@@ -159,7 +164,7 @@ public class LogIn extends javax.swing.JFrame {
         ResultSet rs;
         String Username= jTextField2.getText();
         String Password =jPasswordField1.getText();
-        String query = "SELECT * FROM `userinfo` WHERE `Username` = ? AND `Password` = ?";
+        String query = "SELECT * FROM `info` WHERE `Username` = ? AND `Password` = ?";
          if(Username.trim().equals(""))
         {
             JOptionPane.showMessageDialog(null, "Enter Your Username", "Empty Username", 2);
@@ -198,6 +203,10 @@ public class LogIn extends javax.swing.JFrame {
                            }
         }
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBox1ActionPerformed
 
     /**
      * @param args the command line arguments

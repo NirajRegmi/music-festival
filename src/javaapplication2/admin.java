@@ -50,8 +50,9 @@ public class admin extends javax.swing.JFrame {
         jPasswordField1 = new javax.swing.JPasswordField();
         jButton1 = new javax.swing.JButton();
         jLabel8 = new javax.swing.JLabel();
+        jComboBox1 = new javax.swing.JComboBox();
+        jLabel6 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jButton2 = new javax.swing.JButton();
 
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
@@ -118,7 +119,7 @@ public class admin extends javax.swing.JFrame {
         });
         jPanel3.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 510, 370, 60));
 
-        jLabel8.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel8.setFont(new java.awt.Font("Tahoma", 0, 19)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(0, 102, 255));
         jLabel8.setText("Create an Account");
         jLabel8.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -127,13 +128,18 @@ public class admin extends javax.swing.JFrame {
                 jLabel8MouseClicked(evt);
             }
         });
-        jPanel3.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 580, 150, 50));
+        jPanel3.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 580, 160, 30));
+
+        jComboBox1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Customer", "Co-Orporate organizer", "Organizer" }));
+        jPanel3.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 580, 110, -1));
+
+        jLabel6.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        jLabel6.setText("   OR");
+        jPanel3.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 580, 70, -1));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/imresizer.com (4).jpg"))); // NOI18N
         jPanel3.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1300, 720));
-
-        jButton2.setText("jButton2");
-        jPanel3.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 600, -1, -1));
 
         getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 0, 700, 720));
 
@@ -149,9 +155,9 @@ public class admin extends javax.swing.JFrame {
         ResultSet rs;
         String Username= jTextField1.getText();
         String password =jPasswordField1.getText();
-        String query = "SELECT * FROM `info` WHERE `Username` = ? And `password` = ? ";
+        
         if(Username.trim().equals("admin") && password.trim().equals("admin")){
-             CustomerDashboard form = new CustomerDashboard();
+             AdminPortal form = new AdminPortal();
                              form.setVisible(true);
                              form.pack();
                              form.setLocationRelativeTo(null);
@@ -163,38 +169,52 @@ public class admin extends javax.swing.JFrame {
         {
             JOptionPane.showMessageDialog(null, "Enter Your Username", "Empty Username", 2);
         }
-        else if(password.trim().equals(""))
+         else if(password.trim().equals(""))
         {
             JOptionPane.showMessageDialog(null, "Enter Your Password", "Empty Password", 2);
         }
-        else{
+         else{
             
+            int uid = 0;
         
             try{
+                String query = "SELECT * FROM `user_info` WHERE `Username` = ? and `Password` = ?  ";
                 st = jdbc.getConnection().prepareStatement(query);
             
                 st.setString(1, Username);
                 st.setString(2, password);
-                
+                //st.setString(3,String.valueOf(jComboBox1.getSelectedItem()));
                 rs = st.executeQuery();
+                if (rs.next()){
+                    
+                    uid = rs.getInt("userid");
+                    System.out.println(uid);
+                    
+                    JOptionPane.showMessageDialog(this, "Username and password match and you are logged in as"+rs.getString("user_type"));
+                
+                    if(jComboBox1.getSelectedIndex()==0){
+                    CustomerDashboard cus=new CustomerDashboard();
+                    cus.setCurrentUserId(uid);
+                    cus.setVisible(true);
+                    this.setVisible(false);
+                    
+                    }
+                    else if(jComboBox1.getSelectedIndex()==1){
+                        AdminPortal admin= new AdminPortal();
+                           admin.setVisible(true);
+                           this.setVisible(false);
             
-                    if(rs.next())
-                        {
-                            // show a new form
-                             CustomerDashboard form = new CustomerDashboard();
-                             form.setVisible(true);
-                             form.pack();
-                             form.setLocationRelativeTo(null);
-                            // close the current form(login form)
-                              this.dispose();
-                        }
+                    }
+                }
+            
+                   
                     else{
                 // error message
-                      JOptionPane.showMessageDialog(null, "Invalid Username / Password","Login Error",2);
+                      JOptionPane.showMessageDialog(this, "Invalid Username / Password","Login Error",2);
                          }
                 }
          catch(SQLException | HeadlessException e){
-                JOptionPane.showMessageDialog(null,"invalid credential");
+                JOptionPane.showMessageDialog(this,"invalid credential");
                            }
         }       
        
@@ -243,12 +263,13 @@ public class admin extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JComboBox jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;

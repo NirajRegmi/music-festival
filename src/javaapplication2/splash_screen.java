@@ -6,6 +6,7 @@
 package javaapplication2;
 
 /**
+ * 
  *
  * @author Niraj Regmi
  */
@@ -79,6 +80,7 @@ public class splash_screen extends javax.swing.JFrame {
        
         splash_screen obj= new splash_screen();
         obj.setVisible(true);
+        
        
          try{
             for (int i=0; i<=100; i++){

@@ -15,7 +15,7 @@ public class jdbc {
 
     private static String servername = "localhost";
     private static String username = "root";
-    private static String dbname  = "music_info";
+    private static String dbname  = "global_concert";
     private static Integer portnumber  = 3306;
     private static String password = "";
     

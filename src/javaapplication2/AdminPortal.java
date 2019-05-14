@@ -54,11 +54,11 @@ public class AdminPortal extends javax.swing.JFrame {
         labelview = new javax.swing.JLabel();
         buttonView = new javax.swing.JButton();
         panel1 = new java.awt.Panel();
-        labelLogOut = new javax.swing.JLabel();
         buttonConcert = new javax.swing.JButton();
         buttonBookings = new javax.swing.JButton();
         buttonInvoice = new javax.swing.JButton();
         buttonAvailable = new javax.swing.JButton();
+        labelLogOut = new javax.swing.JLabel();
         panelContent = new javax.swing.JPanel();
         panelAvailable = new javax.swing.JPanel();
         labelNowAvailablepnl = new javax.swing.JLabel();
@@ -71,6 +71,11 @@ public class AdminPortal extends javax.swing.JFrame {
         jTextField1 = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jTextField2 = new javax.swing.JTextField();
+        jLabel3 = new javax.swing.JLabel();
+        jTextField3 = new javax.swing.JTextField();
         panelConcert = new javax.swing.JPanel();
         labelManageConcertpnl = new javax.swing.JLabel();
         jSeparator3 = new javax.swing.JSeparator();
@@ -112,6 +117,11 @@ public class AdminPortal extends javax.swing.JFrame {
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
                 ButtonExitMouseExited(evt);
+            }
+        });
+        ButtonExit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ButtonExitActionPerformed(evt);
             }
         });
 
@@ -183,7 +193,7 @@ public class AdminPortal extends javax.swing.JFrame {
         labelQN.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
         labelQN.setText("Do you want to Logout ?");
         labelQN.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
-        PanelAdmin.add(labelQN, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 20, -1, 25));
+        PanelAdmin.add(labelQN, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 20, -1, 25));
 
         labelAdminIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/icons8-admin-settings-male-filled-100.png"))); // NOI18N
         PanelAdmin.add(labelAdminIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, 111, 133));
@@ -224,32 +234,18 @@ public class AdminPortal extends javax.swing.JFrame {
         });
         PanelAdmin.add(buttonView, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 170, 130, 30));
 
-        labelLogOut.setForeground(new java.awt.Color(0, 102, 204));
-        labelLogOut.setText(" LogOut");
-        labelLogOut.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        labelLogOut.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                labelLogOutMouseClicked(evt);
-            }
-        });
-
         javax.swing.GroupLayout panel1Layout = new javax.swing.GroupLayout(panel1);
         panel1.setLayout(panel1Layout);
         panel1Layout.setHorizontalGroup(
             panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panel1Layout.createSequentialGroup()
-                .addComponent(labelLogOut, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 51, Short.MAX_VALUE))
+            .addGap(0, 70, Short.MAX_VALUE)
         );
         panel1Layout.setVerticalGroup(
             panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel1Layout.createSequentialGroup()
-                .addContainerGap(40, Short.MAX_VALUE)
-                .addComponent(labelLogOut, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(35, 35, 35))
+            .addGap(0, 30, Short.MAX_VALUE)
         );
 
-        PanelAdmin.add(panel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, -20, -1, -1));
+        PanelAdmin.add(panel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 20, 70, 30));
 
         buttonConcert.setBackground(new java.awt.Color(255, 255, 255));
         buttonConcert.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
@@ -299,6 +295,17 @@ public class AdminPortal extends javax.swing.JFrame {
         });
         PanelAdmin.add(buttonAvailable, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 170, 130, 30));
 
+        labelLogOut.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        labelLogOut.setForeground(new java.awt.Color(0, 102, 204));
+        labelLogOut.setText(" LogOut");
+        labelLogOut.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        labelLogOut.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                labelLogOutMouseClicked(evt);
+            }
+        });
+        PanelAdmin.add(labelLogOut, new org.netbeans.lib.awtextra.AbsoluteConstraints(1080, 20, 85, -1));
+
         panelContent.setBackground(new java.awt.Color(204, 204, 204));
         panelContent.setLayout(new java.awt.CardLayout());
 
@@ -314,7 +321,7 @@ public class AdminPortal extends javax.swing.JFrame {
                 .addGroup(panelAvailableLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(labelNowAvailablepnl, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 709, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(323, Short.MAX_VALUE))
+                .addContainerGap(422, Short.MAX_VALUE))
         );
         panelAvailableLayout.setVerticalGroup(
             panelAvailableLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -369,11 +376,34 @@ public class AdminPortal extends javax.swing.JFrame {
         jButton1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jButton1.setText("Search");
 
+        jButton2.setBackground(new java.awt.Color(255, 0, 0));
         jButton2.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        jButton2.setText("Edit");
+        jButton2.setForeground(new java.awt.Color(255, 255, 255));
+        jButton2.setText("Edit this user");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
+            }
+        });
+
+        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel1.setText("Customer Info");
+
+        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel2.setText("Cus_ID");
+
+        jTextField2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField2ActionPerformed(evt);
+            }
+        });
+
+        jLabel3.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel3.setText("Username");
+
+        jTextField3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField3ActionPerformed(evt);
             }
         });
 
@@ -391,14 +421,28 @@ public class AdminPortal extends javax.swing.JFrame {
                         .addGroup(panelEditLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 709, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(labelViewandEditpnl, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 22, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 121, Short.MAX_VALUE)
                         .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelEditLayout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton2)))
+                    .addGroup(panelEditLayout.createSequentialGroup()
+                        .addGap(84, 84, 84)
+                        .addGroup(panelEditLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(panelEditLayout.createSequentialGroup()
+                                .addGroup(panelEditLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel3)
+                                    .addComponent(jLabel2))
+                                .addGap(57, 57, 57)
+                                .addGroup(panelEditLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
+            .addGroup(panelEditLayout.createSequentialGroup()
+                .addGap(296, 296, 296)
+                .addComponent(jButton2)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         panelEditLayout.setVerticalGroup(
             panelEditLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -415,9 +459,20 @@ public class AdminPortal extends javax.swing.JFrame {
                             .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jTextField1))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 272, Short.MAX_VALUE)
-                .addGap(34, 34, 34)
-                .addComponent(jButton2))
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(24, 24, 24)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(panelEditLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(panelEditLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton2)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         panelContent.add(panelEdit, "card3");
@@ -434,7 +489,7 @@ public class AdminPortal extends javax.swing.JFrame {
                 .addGroup(panelConcertLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 771, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(labelManageConcertpnl, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(266, Short.MAX_VALUE))
+                .addContainerGap(365, Short.MAX_VALUE))
         );
         panelConcertLayout.setVerticalGroup(
             panelConcertLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -443,7 +498,7 @@ public class AdminPortal extends javax.swing.JFrame {
                 .addComponent(labelManageConcertpnl, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(348, Short.MAX_VALUE))
+                .addContainerGap(408, Short.MAX_VALUE))
         );
 
         panelContent.add(panelConcert, "card4");
@@ -460,7 +515,7 @@ public class AdminPortal extends javax.swing.JFrame {
                 .addGroup(panelBookingsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jSeparator4, javax.swing.GroupLayout.PREFERRED_SIZE, 752, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(labelManageBookingsPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(285, Short.MAX_VALUE))
+                .addContainerGap(384, Short.MAX_VALUE))
         );
         panelBookingsLayout.setVerticalGroup(
             panelBookingsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -469,7 +524,7 @@ public class AdminPortal extends javax.swing.JFrame {
                 .addComponent(labelManageBookingsPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
                 .addComponent(jSeparator4, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(360, Short.MAX_VALUE))
+                .addContainerGap(420, Short.MAX_VALUE))
         );
 
         panelContent.add(panelBookings, "card5");
@@ -488,7 +543,7 @@ public class AdminPortal extends javax.swing.JFrame {
                         .addGap(10, 10, 10)
                         .addComponent(labelInvoicepnl, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jSeparator5, javax.swing.GroupLayout.PREFERRED_SIZE, 767, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(265, Short.MAX_VALUE))
+                .addContainerGap(364, Short.MAX_VALUE))
         );
         panelInvoiceLayout.setVerticalGroup(
             panelInvoiceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -497,7 +552,7 @@ public class AdminPortal extends javax.swing.JFrame {
                 .addComponent(labelInvoicepnl, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
                 .addComponent(jSeparator5, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(358, Short.MAX_VALUE))
+                .addContainerGap(418, Short.MAX_VALUE))
         );
 
         panelContent.add(panelInvoice, "card6");
@@ -520,7 +575,7 @@ public class AdminPortal extends javax.swing.JFrame {
                 .addComponent(panelContent, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        setSize(new java.awt.Dimension(1083, 661));
+        setSize(new java.awt.Dimension(1182, 721));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
@@ -734,8 +789,20 @@ public class AdminPortal extends javax.swing.JFrame {
     private void jTextField1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField1KeyReleased
         DefaultTableModel table = (DefaultTableModel)jTable1.getModel();
         String search=jTextField1.getText().toLowerCase();
-        TableRowSorter<DefaultTablemodel> tr= new TableRowSorter<DefaultTableModel>(table);
+        TableRowSorter<DefaultTableModel> tr= new TableRowSorter<DefaultTableModel>(table);
     }//GEN-LAST:event_jTextField1KeyReleased
+
+    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField2ActionPerformed
+
+    private void jTextField3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField3ActionPerformed
+
+    private void ButtonExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonExitActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ButtonExitActionPerformed
 
     public void fetch(){
     try{
@@ -802,6 +869,9 @@ public class AdminPortal extends javax.swing.JFrame {
     private javax.swing.JButton buttonView;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
@@ -810,6 +880,8 @@ public class AdminPortal extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator5;
     private javax.swing.JTable jTable1;
     private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField jTextField2;
+    private javax.swing.JTextField jTextField3;
     private javax.swing.JLabel labelAdminIcon;
     private javax.swing.JLabel labelAvailable;
     private javax.swing.JLabel labelBookings;
